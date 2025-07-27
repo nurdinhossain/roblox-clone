@@ -7,7 +7,7 @@ import game from '../../public/game.jpeg'
 
 export default function Home() {
   const MAX_FRIENDS = 12
-  const MAX_GAMES = 5
+  const MAX_GAMES = 10
   const profiles = [...Array(MAX_FRIENDS).keys()].map((profile, i) => 
             <div className="flex flex-col text-center" key={i}>
               <Image src={profile1} width={100} alt='Profile' className="rounded-full aspect-square object-cover mx-3" />
@@ -15,7 +15,7 @@ export default function Home() {
             </div>
           )
   const games = [...Array(MAX_GAMES).keys()].map((g, i) => 
-            <div className="flex flex-col my-2" key={i}>
+            <div className="flex flex-col" key={i}>
               <Image src={game} sizes='100vw' style={{width: 250, height: '50%'}} alt='Game' className="rounded-sm aspect-square mr-4" />
               <a className="font-bold text-lg my-1">Epic Minigames</a>
             </div>
@@ -38,8 +38,8 @@ export default function Home() {
 
       {/* Recommended games */}
       <div>
-        <h2 className="text-xl font-extrabold">Recommended for you</h2>
-        <div className="flex flex-row">
+        <h2 className="text-xl font-extrabold mb-4">Recommended for you</h2>
+        <div className="grid grid-cols-5 gap-x-3">
           {games}
         </div>
       </div>
