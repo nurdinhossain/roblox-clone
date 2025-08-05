@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { fetchUser } from "@/lib/data";
 
 import profile1 from '../../public/profile1.webp'
 import profile2 from '../../public/profile2.webp'
 import profile3 from '../../public/profile3.webp'
 import game from '../../public/game.jpeg'
 
-export default function Home() {
+export default async function Home() {
   const MAX_FRIENDS = 12
   const MAX_GAMES = 10
   const profiles = [...Array(MAX_FRIENDS).keys()].map((profile, i) => 
@@ -15,11 +16,12 @@ export default function Home() {
             </div>
           )
   const games = [...Array(MAX_GAMES).keys()].map((g, i) => 
-            <div className="flex flex-col" key={i}>
-              <Image src={game} sizes='100vw' style={{width: 250, height: '50%'}} alt='Game' className="rounded-sm aspect-square mr-4" />
+            <div className="flex flex-col justify-center items-center" key={i}>
+              <Image src={game} sizes='100vw' style={{width: 250, height: '75%'}} alt='Game' className="rounded-sm aspect-square" />
               <a className="font-bold text-lg my-1">Epic Minigames</a>
             </div>
           )
+  const users = await fetchUser();
 
   return (
     <div className='mx-7 my-10'>
@@ -39,7 +41,7 @@ export default function Home() {
       {/* Recommended games */}
       <div>
         <h2 className="text-xl font-extrabold mb-4">Recommended for you</h2>
-        <div className="grid grid-cols-5 gap-x-3">
+        <div className="grid grid-cols-5 gap-x-3 gap-y-3">
           {games}
         </div>
       </div>

@@ -12,33 +12,47 @@ export default function NavBar() {
     return (
         <header className="flex flex-row justify-around bg-gray-100 py-2">
             <Image src={robloxLogo} width={25} alt='Roblox Logo' />
-            <span className="py-1">Charts</span>
-            <span className="py-1">Marketplace</span>
-            <span className="py-1">Create</span>
-            <span className="py-1">Robux</span>
+            <div className="flex flex-col justify-center">
+                <span >Charts</span>
+            </div>
+            <div className="flex flex-col justify-center">
+                <span >Marketplace</span>
+            </div>
+            <div className="flex flex-col justify-center">
+                <span >Create</span>
+            </div>
+            <div className="flex flex-col justify-center">
+                <span >Robux</span>
+            </div>
             <SearchBar />
             
             {/* Profile + name */}
-            <div className="flex flex-row py-1">
+            <div className="flex flex-row">
                 <Image 
                     src={profile}
                     width={20}
                     alt='Profile'
                 />
-                <a className="text-sm ml-1 py-1 hover:underline">wizardshield101</a>
+                <div className="flex flex-col justify-center">
+                    <a className="text-sm ml-1 hover:underline">wizardshield101</a>
+                </div>
             </div>
             <Image src={notification} width={25} alt='Notification' />
 
             {/* Robux */}
-            <div className="flex flex-row py-1">
+            <div className="flex flex-row">
                 <Image src={robux} width={20} alt='Robux' />
-                <span className="ml-1 py-1">24</span>
+                <div className="flex flex-col justify-center">
+                    <span className="ml-1">24</span>
+                </div>
             </div>
 
             {/* Money */}
-            <div className="flex flex-row py-1">
+            <div className="flex flex-row">
                 <Image src={wallet} width={20} alt='Wallet' />
-                <span className="ml-1 py-1">$0.05</span>
+                <div className="flex flex-col justify-center">
+                    <span className="ml-1">$0.05</span>
+                </div>
             </div>
 
             <Image src={settings} width={20} alt='Settings' />
